@@ -1,10 +1,10 @@
-#include "StorkApp.h"
+#include "Stork-NscApp.h"
 #include "Moose.h"
 #include "AppFactory.h"
 #include "ModulesApp.h"
 
 template<>
-InputParameters validParams<StorkApp>()
+InputParameters validParams<Stork-NscApp>()
 {
   InputParameters params = validParams<MooseApp>();
 
@@ -13,36 +13,36 @@ InputParameters validParams<StorkApp>()
   return params;
 }
 
-StorkApp::StorkApp(const std::string & name, InputParameters parameters) :
+Stork-NscApp::Stork-NscApp(const std::string & name, InputParameters parameters) :
     MooseApp(name, parameters)
 {
   srand(processor_id());
 
   Moose::registerObjects(_factory);
   ModulesApp::registerObjects(_factory);
-  StorkApp::registerObjects(_factory);
+  Stork-NscApp::registerObjects(_factory);
 
   Moose::associateSyntax(_syntax, _action_factory);
   ModulesApp::associateSyntax(_syntax, _action_factory);
-  StorkApp::associateSyntax(_syntax, _action_factory);
+  Stork-NscApp::associateSyntax(_syntax, _action_factory);
 }
 
-StorkApp::~StorkApp()
+Stork-NscApp::~Stork-NscApp()
 {
 }
 
 void
-StorkApp::registerApps()
+Stork-NscApp::registerApps()
 {
-  registerApp(StorkApp);
+  registerApp(Stork-NscApp);
 }
 
 void
-StorkApp::registerObjects(Factory & factory)
+Stork-NscApp::registerObjects(Factory & factory)
 {
 }
 
 void
-StorkApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+Stork-NscApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
 {
 }

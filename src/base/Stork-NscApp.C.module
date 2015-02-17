@@ -1,0 +1,45 @@
+#include "Stork-NscApp.h"
+#include "Moose.h"
+#include "AppFactory.h"
+
+template<>
+InputParameters validParams<Stork-NscApp>()
+{
+  InputParameters params = validParams<MooseApp>();
+
+  params.set<bool>("use_legacy_uo_initialization") = false;
+  params.set<bool>("use_legacy_uo_aux_computation") = false;
+  return params;
+}
+
+Stork-NscApp::Stork-NscApp(const std::string & name, InputParameters parameters) :
+    MooseApp(name, parameters)
+{
+  srand(processor_id());
+
+  Moose::registerObjects(_factory);
+  Stork-NscApp::registerObjects(_factory);
+
+  Moose::associateSyntax(_syntax, _action_factory);
+  Stork-NscApp::associateSyntax(_syntax, _action_factory);
+}
+
+Stork-NscApp::~Stork-NscApp()
+{
+}
+
+void
+Stork-NscApp::registerApps()
+{
+  registerApp(Stork-NscApp);
+}
+
+void
+Stork-NscApp::registerObjects(Factory & factory)
+{
+}
+
+void
+Stork-NscApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+{
+}
