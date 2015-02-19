@@ -31,6 +31,7 @@ Stork-NscApp::~Stork-NscApp()
 {
 }
 
+extern "C" void Stork-NscApp__registerApps() { Stork-NscApp::registerApps(); }
 void
 Stork-NscApp::registerApps()
 {
