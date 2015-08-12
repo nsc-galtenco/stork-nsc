@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
   MooseInit init(argc, argv);
 
   // Register this application's MooseApp and any it depends on
-  Stork-NscApp::registerApps();
+  Stork_NscApp::registerApps();
 
   // This creates dynamic memory that we're responsible for deleting
-  MooseApp * app = AppFactory::createApp("Stork-NscApp", argc, argv);
+  MooseApp * app = AppFactory::createApp("Stork_NscApp", argc, argv);
 
   // Execute the application
   app->run();
